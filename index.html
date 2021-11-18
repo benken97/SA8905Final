@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>2013 Collisions with Cyclists</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<style>
+
+.map-overlay {
+font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+position: absolute;
+width: 20%;
+top: 0;
+right: 0;
+padding: 10px;
+}
+
+
+.map-overlay .map-overlay-inner {
+background-color: #ffff;
+box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+border-radius: 3px;
+padding: 10px;
+margin-bottom: 10px;
+}
+
+.map-overlay h2 {
+line-height: 20px;
+display: block;
+margin: 0 0 10px;
+}
+
+.map-overlay .legend .bar {
+height: 10px;
+width: 100%;
+background: linear-gradient(to right, #ffa07a, #8b0000);
+}
+
+.map-overlay input {
+background-color: transparent;
+display: inline-block;
+width: 100%;
+position: relative;
+margin: 0;
+cursor: ew-resize;
+}
+</style>
+
+<div id="map"></div>
+
+<div class="map-overlay top">
+	<div class="map-overlay-inner">
+		<h2>2013 Cycling Accidents in Ottawa</h2>
+		<label id="names"></label>
+		<input id="slider" type="range" min="1" max="3" step="1" value="0">
+		<label for="slider">
+		</label>
+</div>
+<div class="map-overlay-inner">
+	<div id="legend" class="legend">
+		<div class="bar"></div>
+		<div>Incidents Involving a Cyclist (1 - 3)</div>
+	</div>
+</div>
+
+
+<script src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiYmVua2VuMzEiLCJhIjoiY2t0a2V2ZWF1MGZwZDJxbzZnN2ExYTJlYyJ9.A2FKHEqEr2igrLRGKv0g0w';
+		const map = new mapboxgl.Map({
+			container: 'map', // container ID
+			style: 'mapbox://styles/benken31/cktkh3clw0vq017o3t74z1iq9', // style URL
+			center: [-75.806, 45.276], // starting position [lng, lat]
+			zoom: 9.1 // starting zoom
+		});
+
+
+		map.on('load', () => {
+
+		map.addSource('Collisions', {
+			type: 'vector',
+			url: 'mapbox://benken31.3x474fcs'
+		});
+
+		map.addLayer({
+		'id': 'Collisions1',
+		'type': 'circle',
+		'source': 'Collisions',
+		'source-layer': 'Traffic_Collisions_by_Locatio-0e71ci',
+		'paint':{
+			'circle-color':[
+				'interpolate',
+				['linear'],
+				['get', '2013_CYCLI'],
+				0,
+				'#ffa07a',
+				3,
+				'#8b0000'
+			],
+			'circle-stroke-width':1
+		},
+		'filter':[
+			'>=', ['number',['get', '2013_CYCLI']], 1
+		]
+
+		});
+		document.getElementById('slider').addEventListener('input', function(e){
+			var accidents = parseInt(e.target.value);
+			map.setFilter('Collisions1', ['>=',['number', ['get', '2013_CYCLI']], accidents]);
+		});
+		map.addSource('Streets', {
+			type: 'vector',
+			url: 'mapbox://mapbox.mapbox-streets-v8'
+		});
+
+		map.addLayer({
+			'id': 'Streets',
+			'type': 'line',
+			'source': 'Streets',
+			'source-layer': 'road'
+		})
+
+	});
+</script>
+
+
+</body>
+</html>
