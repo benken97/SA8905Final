@@ -32,28 +32,6 @@ padding: 10px;
 margin-bottom: 10px;
 }
 
-.map-overlay .map-overlay-inner .bottom-right{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	padding: 10px;
-}
-
-/* .map-overlay .map-overlay-inner{
-	.bottom-left{
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		padding: 10px;
-	}
-	.bottom-right{
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		padding: 10px;
-	}
-} */
-
 .map-overlay h2 {
 line-height: 20px;
 display: block;
@@ -74,17 +52,16 @@ position: relative;
 margin: 0;
 cursor: ew-resize;
 }
+
 </style>
 
 <div id="map"></div>
 
 <div class="map-overlay top">
 	<div class="map-overlay-inner">
-		<h2>2013 Cycling Accidents in Ottawa</h2>
+		<h2>2013 Cycling Accidents in Ottawa (1+ - 3)</h2>
 		<label id="names"></label>
 		<input id="slider" type="range" min ='1' max='3' step="1" value="0">
-		<!-- <div class='bottom-left'>1+</div> -->
-		<div class ='bottom-right'>3+</div>
 </div>
 
 <div class="map-overlay-inner">
@@ -122,7 +99,7 @@ cursor: ew-resize;
 			'circle-radius':[
 				'interpolate', ['linear'],
 				['number', ['get', '2013_CYCLI']],
-				0, 3,
+				0, 1,
 				3, 10
 			],
 			'circle-color':[
