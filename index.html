@@ -102,6 +102,12 @@ cursor: ew-resize;
 		'source': 'Collisions',
 		'source-layer': 'Traffic_Collisions_by_Locatio-0e71ci',
 		'paint':{
+			'circle-radius':[
+				'interpolate', ['linear'],
+				['number', ['get', '2013_CYCLI']],
+				0, 4,
+				3, 25
+			],
 			'circle-color':[
 				'interpolate',
 				['linear'],
@@ -110,12 +116,6 @@ cursor: ew-resize;
 				'#ffa07a',
 				3,
 				'#8b0000'
-			],
-			'circle-radius':[
-				'interpolate', ['linear'],
-				['number', ['get', '2013_CYCLI']],
-				0, 4,
-				3, 25
 			],
 			'circle-stroke-width':1
 		},
