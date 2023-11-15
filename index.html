@@ -105,8 +105,6 @@ cursor: ew-resize;
 			var accidents = parseInt(e.target.value);
 		map.setFilter('Collisions1', ['>=',['number', ['get', '2013_CYCLI']], accidents]);
 		});
-
-		Best way might be to use an if/else to loop through the three different options
 		map.addSource('Streets', {
 			type: 'vector',
 			url: 'mapbox://mapbox.mapbox-streets-v8'
