@@ -82,23 +82,23 @@ cursor: ew-resize;
 			url: 'mapbox://benken31.9nhexn9z'
 		});
 
-		map.addLayer({
-		'id': 'Collisions1',
-		'type': 'circle',
-		// wonder if possible to weight the different locations less or more by accidents
-		'source': 'Collisions',
-		'source-layer': 'Collisions_2013_2017-8z83fm',
-		'paint':{
-			'circle-radius':[
-				'interpolate', ['linear'],
-				['number', ['get', '2013_CYCLI']],
-				0, 1,
-				3, 10
-			],
-			'circle-color':'#8b0000',
-			'circle-stroke-width':1
-		}
-	});
+	// 	map.addLayer({
+	// 	'id': 'Collisions1',
+	// 	'type': 'circle',
+	// 	// wonder if possible to weight the different locations less or more by accidents
+	// 	'source': 'Collisions',
+	// 	'source-layer': 'Collisions_2013_2017-8z83fm',
+	// 	'paint':{
+	// 		'circle-radius':[
+	// 			'interpolate', ['linear'],
+	// 			['number', ['get', '2013_CYCLI']],
+	// 			0, 1,
+	// 			3, 10
+	// 		],
+	// 		'circle-color':'#8b0000',
+	// 		'circle-stroke-width':1
+	// 	}
+	// });
 
 		// //Might be a good idea to work on producing heat maps by year for 2013, 2015, 2017 and then filtering through those rather than individual accidents. This would let you filter through the most dangerous areas with ease
 		document.getElementById('slider').addEventListener('input', function(e){
