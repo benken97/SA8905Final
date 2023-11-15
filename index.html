@@ -75,12 +75,12 @@ cursor: ew-resize;
 		});
 
 
-		map.on('load', () => {
+		// map.on('load', () => {
 
-		map.addSource('Collisions', {
-			type: 'vector',
-			url: 'mapbox://benken31.9nhexn9z'
-		});
+		// map.addSource('Collisions', {
+		// 	type: 'vector',
+		// 	url: 'mapbox://benken31.9nhexn9z'
+		// });
 
 	// 	map.addLayer({
 	// 	'id': 'Collisions1',
@@ -101,10 +101,10 @@ cursor: ew-resize;
 	// });
 
 		// //Might be a good idea to work on producing heat maps by year for 2013, 2015, 2017 and then filtering through those rather than individual accidents. This would let you filter through the most dangerous areas with ease
-		document.getElementById('slider').addEventListener('input', function(e){
-			var accidents = parseInt(e.target.value);
-		map.setFilter('Collisions1', ['>=',['number', ['get', '2013_CYCLI']], accidents]);
-	});
+	// 	document.getElementById('slider').addEventListener('input', function(e){
+	// 		var accidents = parseInt(e.target.value);
+	// 	map.setFilter('Collisions1', ['>=',['number', ['get', '2013_CYCLI']], accidents]);
+	// });
 
 		// Best way might be to use an if/else to loop through the three different options
 		// map.addSource('Streets', {
