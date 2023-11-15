@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <title>2013 Collisions with Cyclists</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-<link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
 
 <style>
 body { margin: 0; padding: 0; }
-map { position: absolute; top: 0; bottom: 0; width: 100%; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
 </style>
 </head>
 <body>
@@ -24,13 +24,13 @@ right: 0;
 padding: 10px;
 }
 
-/* .map-overlay .map-overlay-inner {
+.map-overlay .map-overlay-inner {
 background-color: #ffff;
 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 border-radius: 3px;
 padding: 10px;
 margin-bottom: 10px;
-} */
+}
 
 .map-overlay h2 {
 line-height: 20px;
@@ -66,7 +66,7 @@ cursor: ew-resize;
 
 <script src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script>
 <script>
-	mapboxgl.accessToken = 'pk.eyJ1IjoiYmVua2VuMzEiLCJhIjoiY2t0a2V2ZWF1MGZwZDJxbzZnN2ExYTJlYyJ9.A2FKHEqEr2igrLRGKv0g0w';
+	mapboxgl.accessToken = 'pk.eyJ1IjoiYmVua2VuMzEiLCJhIjoiY2xwMDgwbmt1MDZsMzJrbG9kM3k0eXpyZSJ9.p2E4VMOzKTs6sRPaVB3BHA';
 		const map = new mapboxgl.Map({
 			container: 'map', // container ID
 			style: 'mapbox://styles/benken31/cktkh3clw0vq017o3t74z1iq9', // style URL
